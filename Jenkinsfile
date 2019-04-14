@@ -26,12 +26,12 @@ pipeline{
             parallel{
                 stage('Deploy to staging'){
                     steps {
-                        sh 'scp -i 'F:\Study\AWS\myKeypair.pem' **/target/*.war ubuntu@${params.tomcat_stage}:/var/lib/tomcat8/webapps/ROOT/'
+                        sh 'scp -i /tmp/myKeypair.pem **/target/*.war ubuntu@${params.tomcat_stage}:/var/lib/tomcat8/webapps/ROOT/'
                     }
                 }
                 stage('Deploy to production'){
                     steps {
-                        sh 'scp -i 'F:\Study\AWS\myKeypair.pem' **/target/*.war ubuntu@${params.tomcat_prod}:/var/lib/tomcat8/webapps/ROOT/'
+                        sh 'scp -i /tmp/myKeypair.pem **/target/*.war ubuntu@${params.tomcat_prod}:/var/lib/tomcat8/webapps/ROOT/'
                     }
                 }
 
