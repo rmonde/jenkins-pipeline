@@ -2,17 +2,26 @@ pipeline{
     agent any
     stages {
         stage("Build") {
-            echo 'this is building phase'
+            step {
+                echo 'this is building phase'
+            }
+            post {
+                success {
+                    echo 'Build succeeded'
+                }
+            }
         }
         stage("Deploy") {
-            echo 'this is deployment phase'
-        }
-        post {
-            always {
-                echo 'Always'
+            step {
+                echo 'this is deployment phase'
             }
-            success {
-                echo 'Archiving artifacts'
+            post {
+                always {
+                    echo 'Always'
+                }
+                success {
+                    echo 'Archiving artifacts'
+                }
             }
         }
     }
