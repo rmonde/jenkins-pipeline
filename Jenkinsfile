@@ -1,10 +1,10 @@
 pipeline{
     agent any
-    stages{
-        stage("Build"){
+    stages {
+        stage("Build") {
             echo 'this is building phase'
         }
-        stage("Deploy"){
+        stage("Deploy") {
             echo 'this is deployment phase'
         }
         post {
@@ -15,4 +15,5 @@ pipeline{
                 echo 'Archiving artifacts'
             }
         }
+    }
 }
