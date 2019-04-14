@@ -25,7 +25,7 @@ pipeline{
         stage('Deployment'){
             steps {
                 sh 'echo "Deploying to staging environment"'
-                sh 'scp -i /tmp/myKeypair.pem **/target/*.war ubuntu@${params.tomcat_stage}:/var/lib/tomcat8/webapps/ROOT'
+                sh "scp -i /tmp/myKeypair.pem **/target/*.war ubuntu@${params.tomcat_stage}:/var/lib/tomcat8/webapps/ROOT"
             }
             post {
                 success {
