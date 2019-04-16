@@ -24,8 +24,7 @@ pipeline{
         }
         stage('Deployment'){
             steps {
-                sh 'echo "Deploying to staging environment"'
-                sh "scp -o StrictHostKeyChecking=no -i /tmp/myKeyPair.pem **/target/*.war ubuntu@${params.tomcat_stage}:/var/lib/tomcat8/webapps/ROOT"
+                build job: 'deploy-to-staging'
             }
             post {
                 success {
